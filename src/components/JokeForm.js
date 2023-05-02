@@ -2,21 +2,6 @@ import React, { useState } from "react";
 
 function JokeForm() {
 
-    // const [body, setBody] = useState("")
-
-    // function addJoke(joke) {
-
-    //     fetch(`http://localhost:9292/jokes`, {
-    //         method: "POST",
-    //         header: {
-
-    //         },
-    //         body: JSON.stringify({
-    //             body: joke.body,
-    //             user_id: params.id
-    //         })
-    //     })
-    // }
 
     return (
         <div>

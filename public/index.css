@@ -1,0 +1,21 @@
+#navBar {
+    text-align: center;
+}
+
+#my-jokes-application {
+    text-align: center;
+    height: 130px;
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+.user-names {
+    text-align: center; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    
+}

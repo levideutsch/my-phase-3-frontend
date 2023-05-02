@@ -53,42 +53,31 @@ function User({ onAddJoke, onJokeDelete, onUpdateJoke }) {
         fetch(`http://localhost:9292/jokes/${joke.id}`, {
 
           method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            },
         })
-         onJokeDelete(joke.id)
+        onJokeDelete(joke)
     }
 
-    function handleUpdateJoke(updatedJoke) {
-        // setIsEditing(false);
-        onUpdateJoke(updatedJoke);
-    }
+    // function handleUpdateJoke(updatedJoke) {
+    //     // setIsEditing(false);
+    //     onUpdateJoke(updatedJoke);
+    //     // setUser({ ...user, jokes: [ ...user.jokes]})
+        
+    // }
 
 
-    const jokes = user.jokes.map(joke => <Joke key={joke.id} joke={joke} handleDeleteClick={handleDeleteClick} onUpdateJoke={handleUpdateJoke}/>)
+    const jokes = user.jokes.map(joke => <Joke key={joke.id} joke={joke} handleDeleteClick={handleDeleteClick} onUpdateJoke={onUpdateJoke}/>)
   
 
 
     return (
-        <div>
+        <div className="my-jokes-application">
             <br/>
             <h2>{user.username}</h2>
             <hr/>
             <h3>Jokes:</h3>
-            {/* <Joke handleDeleteClick={handleDeleteClick}/> */}
-            {/* <br/> */}
             {jokes}
             <br/>
-            {/* {isEditing ? (
-                <EditJoke 
-                onUpdateJoke={handleUpdateJoke} 
-                />
-            ) : (
-                <p>{jokes}</p>
-            )} */}
             <hr/>
-            {/* <JokeForm onAddJoke={onAddJoke}/> */}
             <h2>Add new joke</h2>
             <form onSubmit={addJoke}>
             <input

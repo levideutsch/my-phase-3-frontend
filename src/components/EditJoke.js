@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 
-function EditJoke({ onUpdateJoke, joke}) {
+function EditJoke({ onUpdateJoke, joke }) {
     const {body, id} = joke
-    
-    const [jokeBody, setJokeBody] = useState(joke)
+  
+    const [jokeBody, setJokeBody] = useState(joke.body)
 
-    // console.log(jokeBody)
+  console.log(jokeBody)
 
     function handleFormSubmit(e) {
         e.preventDefault();
@@ -32,8 +33,8 @@ function EditJoke({ onUpdateJoke, joke}) {
                 type="text"
                 name="body"
                 autoComplete="off"
-                value={jokeBody.body}
-                onChange={(e) => setJokeBody(e.target.value)}
+                value={jokeBody}
+                onChange={e => setJokeBody(e.target.value)}
             />
             <input type="submit" value="save" />
             </form>

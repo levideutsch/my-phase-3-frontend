@@ -4,7 +4,6 @@ import Home from "./Home";
 import Navigation from "./Navigation";
 import Users from "./Users";
 import User from "./User";
-// import NewUser from "./NewUser";
 
 
 function App() {
@@ -57,7 +56,7 @@ function App() {
             </Route>
 
             <Route path="/users/:id">
-                <User userJokes={jokes} onAddJoke={handleAddJoke} onJokeDelete={handleDeleteJoke} onUpdateJoke={handleUpdateJoke}/>
+                <User onAddJoke={handleAddJoke} onJokeDelete={handleDeleteJoke} onUpdateJoke={handleUpdateJoke}/>
             </Route>
 
         </Switch>
