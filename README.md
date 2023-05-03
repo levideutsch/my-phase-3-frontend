@@ -15,6 +15,8 @@ You will then be taken to the browser to start using the project.
 
 ## IMPORTANT
 Make sure the backend server is running as well.
-
 [Backend](https://github.com/learn-co-curriculum/phase-3-sinatra-react-project)
+
+## How to use it:
+
 
