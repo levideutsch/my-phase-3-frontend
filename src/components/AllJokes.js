@@ -1,6 +1,6 @@
 import React from "react";
 
-function AllJokes({ joke }) {
+function AllJokes({ joke, time }) {
 
     //Displays every individual joke on Home page
     return (
@@ -8,6 +8,7 @@ function AllJokes({ joke }) {
         <ul>
             <h3>
             {joke}
+        
             </h3>
         </ul>
        </div>

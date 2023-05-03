@@ -3,7 +3,7 @@ import AllJokes from "./AllJokes";
 
 
 function Home({ jokes }) {
-
+// console.log(jokes[0].user_id)
 
    //Displays all jokes to Home page
     const displayJokes = jokes.map(joke => <AllJokes key={joke.id} joke={joke.body}/>)
