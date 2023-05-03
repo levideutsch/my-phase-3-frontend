@@ -1,4 +1,4 @@
-# My phase-3 Project! - My jokes application
+# My phase-3 Project! - My jokes application - frontend
 
 ## About:
 Have you ever just wanted to hop onto a website where everything about it is just fun?
@@ -11,4 +11,10 @@ Run:
 
 Then to start the project, run:
 `$ npm start` 
+You will then be taken to the browser to start using the project.
+
+## IMPORTANT
+Make sure the backend server is running as well.
+
+[google](google.com)
 
