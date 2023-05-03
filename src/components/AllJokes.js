@@ -2,8 +2,9 @@ import React from "react";
 
 function AllJokes({ joke }) {
 
+    //Displays every individual joke on Home page
     return (
-       <div>
+       <div className="all-jokes">
         <ul>
             <h3>
             {joke}

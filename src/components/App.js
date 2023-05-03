@@ -48,7 +48,7 @@ function App() {
         })
         .then(res => res.json())
         .then((joke) => {
-            setJokes(jokes.map(j => j.id == joke.id ? joke : j))
+            setJokes(jokes.map(j => j.id === joke.id ? joke : j))
         });
     }
 

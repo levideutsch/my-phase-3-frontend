@@ -19,8 +19,7 @@ function User({ jokes, onAddJoke, onJokeDelete, onUpdateJoke }) {
         .then(data => {
             setUser(data)
         })
-    }, [id])
-
+    }, [])
 
     // Adds joke to user's list
     function addJoke(e) {
@@ -31,15 +30,15 @@ function User({ jokes, onAddJoke, onJokeDelete, onUpdateJoke }) {
         onAddJoke(joke);
         setBody("");
     }
-
+   
     return (
-        <div className="my-jokes-application">
+        <div className="all-jokes">
             <br/>
             <h2>{ user.username }</h2>
             <hr/>
             <h3>Jokes:</h3>
             {jokes
-                .filter(joke => joke.user_id === id)
+                .filter(joke => joke.user_id == id)
                 .map(joke => <Joke
                     key={joke.id}
                     joke={joke}

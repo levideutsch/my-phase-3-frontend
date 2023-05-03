@@ -11,6 +11,7 @@ function Home({ jokes }) {
     return(
      <div id="my-jokes-application">
         <h1>My jokes application</h1>
+        <hr />
         {displayJokes}
      </div>
     )

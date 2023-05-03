@@ -19,3 +19,9 @@
     margin-right: auto; 
     
 }
+
+.all-jokes {
+    font-family: sans-serif;
+    color: maroon;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
