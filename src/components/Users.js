@@ -6,7 +6,7 @@ function Users() {
 
     //users state
     const [users, setUsers] = useState([])
-    // const [userForm, setUserForm] = useState(false)
+    
 
     //GET's users data and adds it to users state
     useEffect(() => {

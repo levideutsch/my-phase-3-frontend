@@ -5,42 +5,52 @@ import Navigation from "./Navigation";
 import Users from "./Users";
 import User from "./User";
 
-
 function App() {
 
     //Add joke data to state
     const [jokes, setJokes] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:9292/jokes")
-        .then(response => response.json())
-        .then(data => setJokes(data))
+        fetch('http://localhost:9292/jokes')
+            .then(res => res.json())
+            .then(setJokes)
     }, [])
    
     //User POST joke
-    function handleAddJoke(newJoke) {
-        setJokes([...jokes, newJoke]);
+    function handleAddJoke(joke) {
+        fetch('http://localhost:9292/jokes', {
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(joke)
+        }).then(res => res.json())
+        .then(joke => setJokes([...jokes, joke]))
     }
 
     //User DELETE joke
-    function handleDeleteJoke(id) {
-        const updatedJokes = jokes.filter((joke) => joke.id !== id);
-        setJokes(updatedJokes);
+    function handleDeleteJoke({ id }) {
+        fetch(`http://localhost:9292/jokes/${id}`, {
+            method: 'DELETE'
+        }).then(() => {
+            setJokes(jokes.filter((joke) => joke.id !== id))
+        });
     }
 
     //User PATCH joke
-    function handleUpdateJoke(updatedJokeObj) {
-        const updatedJokes = jokes.map((joke) => {
-          if (joke.id === updatedJokeObj.id) {
-            return updatedJokeObj;
-          } else {
-            return joke;
-          }
+    function handleUpdateJoke(joke) {
+        fetch(`http://localhost:9292/jokes/${joke.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                body: joke.body,
+            }),
+        })
+        .then(res => res.json())
+        .then((joke) => {
+            setJokes(jokes.map(j => j.id == joke.id ? joke : j))
         });
-        setJokes(updatedJokes);
-      }
-
-
+    }
 
     return (
      <Router>
@@ -56,7 +66,7 @@ function App() {
             </Route>
 
             <Route path="/users/:id">
-                <User onAddJoke={handleAddJoke} onJokeDelete={handleDeleteJoke} onUpdateJoke={handleUpdateJoke}/>
+                <User jokes={jokes} onAddJoke={handleAddJoke} onJokeDelete={handleDeleteJoke} onUpdateJoke={handleUpdateJoke}/>
             </Route>
 
         </Switch>

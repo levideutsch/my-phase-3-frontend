@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
-function NewUser({ users, setUsers, onAddUser }) {
+function NewUser({ onAddUser }) {
 
     const [body, setBody] = useState("")
-    // const [user, setUser] = useState({
-    //     username: 
-    // })
+  
 
     function addUser(user) {
         user.preventDefault()
@@ -23,7 +21,6 @@ function NewUser({ users, setUsers, onAddUser }) {
         .then((r) => r.json())
         .then((newUser) => {
             onAddUser(newUser);
-            // setUsers({ ...user, jokes: [ ...user.jokes, newJoke ]})
             setBody("");
         });
     }

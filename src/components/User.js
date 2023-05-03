@@ -1,81 +1,50 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Joke from "./Joke";
+// import api from '../api'
 // import EditJoke from "./EditJoke";
 
-function User({ onAddJoke, onJokeDelete, onUpdateJoke }) {
-
-    // Single user state
-    const [user, setUser] = useState({
-        jokes: []
-    })
-
+function User({ jokes, onAddJoke, onJokeDelete, onUpdateJoke }) {
 
     // Body of form state
     const [body, setBody] = useState("")
-    // retrieve route parameters from the functional component rendered by the matching route
-    const  params = useParams()
+    const [user, setUser] = useState({})
 
-    // GET's individual user
+    // retrieve route parameters from the functional component rendered by the matching route
+    const { id } = useParams()
+
     useEffect(() => {
-        fetch(`http://localhost:9292/users/${params.id}`)
+        fetch(`http://localhost:9292/users/${id}`)
         .then(response => response.json())
         .then(data => {
             setUser(data)
         })
-    }, [])
+    }, [id])
 
 
     // Adds joke to user's list
-    function addJoke(joke) {
-        joke.preventDefault()
-        
-        fetch("http://localhost:9292/jokes", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            body: body,
-            user_id: params.id,
-        }),
-        })
-        .then((r) => r.json())
-        .then((newJoke) => {
-            onAddJoke(newJoke);
-            setUser({ ...user, jokes: [ ...user.jokes, newJoke ]})
-            setBody("");
-        });
+    function addJoke(e) {
+        e.preventDefault();
+
+        const joke = { body, user_id: user.id }
+
+        onAddJoke(joke);
+        setBody("");
     }
-
-    function handleDeleteClick(joke) {
-      
-        fetch(`http://localhost:9292/jokes/${joke.id}`, {
-
-          method: "DELETE",
-        })
-        onJokeDelete(joke)
-    }
-
-    // function handleUpdateJoke(updatedJoke) {
-    //     // setIsEditing(false);
-    //     onUpdateJoke(updatedJoke);
-    //     // setUser({ ...user, jokes: [ ...user.jokes]})
-        
-    // }
-
-
-    const jokes = user.jokes.map(joke => <Joke key={joke.id} joke={joke} handleDeleteClick={handleDeleteClick} onUpdateJoke={onUpdateJoke}/>)
-  
-
 
     return (
         <div className="my-jokes-application">
             <br/>
-            <h2>{user.username}</h2>
+            <h2>{ user.username }</h2>
             <hr/>
             <h3>Jokes:</h3>
-            {jokes}
+            {jokes
+                .filter(joke => joke.user_id === id)
+                .map(joke => <Joke
+                    key={joke.id}
+                    joke={joke}
+                    handleDeleteClick={onJokeDelete}
+                    onUpdateJoke={onUpdateJoke}/>)}
             <br/>
             <hr/>
             <h2>Add new joke</h2>
