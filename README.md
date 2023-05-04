@@ -21,9 +21,12 @@ Make sure the backend server is running as well.
 
 ## Home:
 ![image](public/image_1.png)
-here we have our Home page with a list of all our users jokes.
+Here we have our Home page with a list of all our users jokes.
 On the top half of the page we can navigate from Home to Users.
 
 ## Users
 ![image](public/image_2.png)
+Here we have our Users page with a list of all our Users. Click on any user and you will be brought to that specific users page.
+
+The lower half of the Users page allows you to create a new user.
 
