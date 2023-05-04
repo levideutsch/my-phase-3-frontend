@@ -34,9 +34,10 @@ function User({ jokes, onAddJoke, onJokeDelete, onUpdateJoke }) {
     return (
         <div className="all-jokes">
             <br/>
-            <h2>{ user.username }</h2>
+            <div class="card">
+            <h2 class="card__content">{ user.username }</h2>
             <hr/>
-            <h3>Jokes:</h3>
+            <h3 class="card__content">Jokes:</h3>
             {jokes
                 .filter(joke => joke.user_id == id)
                 .map(joke => <Joke
@@ -44,6 +45,7 @@ function User({ jokes, onAddJoke, onJokeDelete, onUpdateJoke }) {
                     joke={joke}
                     handleDeleteClick={onJokeDelete}
                     onUpdateJoke={onUpdateJoke}/>)}
+            </div>
             <br/>
             <hr/>
             <h2>Add new joke</h2>

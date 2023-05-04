@@ -13,7 +13,7 @@ function Joke({ joke, handleDeleteClick, onUpdateJoke }) {
     return (
       
         <div>
-            <h3>{joke.body}</h3>
+            <h3 class="card__content">{joke.body}</h3>
             <button onClick={() => handleDeleteClick(joke)}>
             <span role="img" aria-label="delete">
               🗑

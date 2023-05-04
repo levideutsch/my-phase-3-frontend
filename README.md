@@ -19,4 +19,6 @@ Make sure the backend server is running as well.
 
 ## How to use it:
 
+# Home:
+![image](public/image_1.png)
 
