@@ -30,3 +30,6 @@ Here we have our Users page with a list of all our Users. Click on any user and 
 
 The lower half of the Users page allows you to create a new user.
 
+## User
+![image](public/image_3.png)
+
