@@ -38,7 +38,9 @@ Here we see our current user with their jokes. Each joke has an edit and delete 
 The lower half of the User page allows the user to create a new joke.
 
 ![image](public/image_5.png)
-Here we can see how the user can edit their new joke
+Here we can see how the user can edit their new joke.
+
+### Hope you enjoyed!
 
 
 
