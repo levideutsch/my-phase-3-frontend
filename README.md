@@ -24,5 +24,6 @@ Make sure the backend server is running as well.
 here we have our Home page with a list of all our users jokes.
 On the top half of the page we can navigate from Home to Users.
 
-
+## Users
+![image](public/image_2.png)
 
