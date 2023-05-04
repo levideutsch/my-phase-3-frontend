@@ -19,6 +19,10 @@ Make sure the backend server is running as well.
 
 ## How to use it:
 
-# Home:
+## Home:
 ![image](public/image_1.png)
+here we have our Home page with a list of all our users jokes.
+On the top half of the page we can navigate from Home to Users.
+
+
 
