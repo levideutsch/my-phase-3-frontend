@@ -35,6 +35,10 @@ The lower half of the Users page allows you to create a new user.
 Here we see our current user with their jokes. Each joke has an edit and delete button.
 
 ![image](public/image_4.png)
-
 The lower half of the User page allows the user to create a new joke.
+
+![image](public/image_5.png)
+Here we can see how the user can edit their new joke
+
+
 
