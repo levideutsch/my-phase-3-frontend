@@ -1,22 +1,22 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
+
 
 function NewUser({ onAddUser }) {
 
     const [body, setBody] = useState("")
   
 
-    function addUser(user) {
-        user.preventDefault()
+    function addUser(e) {
+        e.preventDefault()
         
         fetch(`http://localhost:9292/users`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            username: body,
-        }),
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username: body,
+            }),
         })
         .then((r) => r.json())
         .then((newUser) => {

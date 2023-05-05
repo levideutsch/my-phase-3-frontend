@@ -1,25 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Joke from "./Joke";
-// import api from '../api'
-// import EditJoke from "./EditJoke";
 
-function User({ jokes, onAddJoke, onJokeDelete, onUpdateJoke }) {
+
+function User({ users, onAddJoke, onJokeDelete, onUpdateJoke }) {
 
     // Body of form state
-    const [body, setBody] = useState("")
-    const [user, setUser] = useState({})
+    const [body, setBody] = useState("");
+    const [user, setUser] = useState({ jokes: [] })
 
     // retrieve route parameters from the functional component rendered by the matching route
     const { id } = useParams()
 
     useEffect(() => {
-        fetch(`http://localhost:9292/users/${id}`)
-        .then(response => response.json())
-        .then(data => {
-            setUser(data)
-        })
-    }, [])
+        const user = users.filter(u => u.id == id)[0];
+        if (user) setUser(user);
+    }, [users, id])
 
     // Adds joke to user's list
     function addJoke(e) {
@@ -34,12 +30,11 @@ function User({ jokes, onAddJoke, onJokeDelete, onUpdateJoke }) {
     return (
         <div className="all-jokes">
             <br/>
-            <div class="card">
-            <h2 class="card__content">{ user.username }</h2>
+            <div className="card">
+            <h2 className="card__content">{ user.username }</h2>
             <hr/>
-            <h3 class="card__content">Jokes:</h3>
-            {jokes
-                .filter(joke => joke.user_id == id)
+            <h3 className="card__content">Jokes:</h3>
+            {user.jokes
                 .map(joke => <Joke
                     key={joke.id}
                     joke={joke}

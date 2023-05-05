@@ -1,18 +1,15 @@
 import React, { useState } from "react";
-// import { useParams } from "react-router-dom";
 
 function EditJoke({ onUpdateJoke, joke }) {
     const {body, id} = joke
   
     const [jokeBody, setJokeBody] = useState(body)
 
-
     function handleFormSubmit(e) {
         e.preventDefault();
         onUpdateJoke({ id, body: jokeBody });
     }
    
-    
     return (
         <div>
 
