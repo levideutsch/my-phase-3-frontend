@@ -77,7 +77,8 @@ function App() {
     }
 
     const jokes = users.reduce((jokes, user) => [...jokes, ...user.jokes], []);
-
+console.log(jokes)
+console.log(users)
     return (
      <Router>
         <Navigation/>
